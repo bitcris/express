@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(34, 34, 34);
+    color: rgb(212, 57, 148);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
+.menu{
+    background-color: rgba(0, 0, 0, 0.308);
+    margin-bottom: 10px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: rgb(20, 220, 170);
+    
+}
+
+
+footer{
+    background-color: #0000007a;
+    font-size: 10px;
+    color: rgb(20, 220, 170);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
