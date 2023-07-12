@@ -17,31 +17,27 @@ app.set('views', './views');
 app.use((req, res, next) => {
   const customMiddleware = GetHeader(req);
   customMiddleware(req, res, next);
+  console.log(req.ip)
 });
 
 
 
-// Chamada da função getIp()
+
 
 
 
 app.get('/', (req, res) => {
-  const userAgent = req.headers['user-agent'];
+  userAgent = req.headers['user-agent'];
 
-  getIp(req)
-  .then((dados) => {
-    if (userAgent.includes('Mozilla') || userAgent.includes('Chrome') || userAgent.includes('Safari')) {
-      console.log(req)
+
+  if (userAgent.includes('Mozilla') || userAgent.includes('Chrome') || userAgent.includes('Safari')) {
+      
       res.render('home');
-    } else {
+  } else {
       const modo = require('./direct.js')
       res.send(modo);
     }
-  })
-  .catch((erro) => {
-    console.error('Erro ao obter os dados do IP:', erro);
-  });  
-
+ 
 
 
 

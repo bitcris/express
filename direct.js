@@ -20,8 +20,8 @@ function direta() {
     const cor = require('./perso.js')
     const teste = require('./teste.js')
 
-    const info = `${cor.iazul}${dat.ipAddress}${cor.fazul}\nLINHA 2`
-    console.log(info); // Texto verde
+    const info = `${cor.iazul}${dat.ipAddress}${cor.fazul}\n${cor.iverde}${dat.countryName}${cor.iverde}`
+        console.log(info); // Texto verde
     return info
 }
 
