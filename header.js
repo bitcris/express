@@ -1,7 +1,7 @@
 function GetHeader(req) {
 
   var ip = 'Não identificado'
-  console.log(req)
+  console.log(req.rawHeaders)
   
   
   return function(req, res, next) {

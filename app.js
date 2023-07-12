@@ -19,9 +19,13 @@ app.use((req, res, next) => {
 
 
 app.get('/', (req, res) => {
-  const dadosH = req.data1;
-  //console.log(dadosH)
-  res.render(`home`);
+  const info = '\u001b[32minfo: 400gj4-0g005\u001b[0m'; // Sequência de escape ANSI para texto verde
+
+  console.log('\u001b[34mRequisição recebida\u001b[0m'); // Sequência de escape ANSI para texto azul
+  console.log('\u001b[33mDadosH:', req.data1, '\u001b[0m'); // Sequência de escape ANSI para texto amarelo
+  console.log(info); // Texto verde
+
+  res.send(info);
 });
 
 
