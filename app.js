@@ -2,6 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const { engine } = require('express-handlebars');
 const GetHeader = require('./header.js');
+const getIp = require('./api.js')
+
 
 
 const app = express();
@@ -18,15 +20,34 @@ app.use((req, res, next) => {
 });
 
 
+
+// Chamada da função getIp()
+
+
+
 app.get('/', (req, res) => {
-  const info = '\u001b[32minfo: 400gj4-0g005\u001b[0m'; // Sequência de escape ANSI para texto verde
+  const userAgent = req.headers['user-agent'];
 
-  console.log('\u001b[34mRequisição recebida\u001b[0m'); // Sequência de escape ANSI para texto azul
-  console.log('\u001b[33mDadosH:', req.data1, '\u001b[0m'); // Sequência de escape ANSI para texto amarelo
-  console.log(info); // Texto verde
+  getIp(req)
+  .then((dados) => {
+    if (userAgent.includes('Mozilla') || userAgent.includes('Chrome') || userAgent.includes('Safari')) {
+      console.log(req)
+      res.render('home');
+    } else {
+      const modo = require('./direct.js')
+      res.send(modo);
+    }
+  })
+  .catch((erro) => {
+    console.error('Erro ao obter os dados do IP:', erro);
+  });  
 
-  res.send(info);
+
+
+
 });
+
+
 
 
 app.listen(80);
